@@ -1,7 +1,7 @@
 import java.util.* ;
 public class Library{
- private HashMap<String , Book> books ;
- private HashMap<String , Member> members ;
+ private HashMap<String , Book> books ;   //string =  isbn 
+ private HashMap<String , Member> members ; // string = memberId
 
  public Library(){
     this.books = new HashMap<>();
@@ -46,6 +46,29 @@ public class Library{
 
     }
 
+    public void addMember(String name , String phone){
+     int newId = members.size() + 1;
+     Member member = new Member(  newId , name , phone);
+     members.put(String.valueOf(newId), member);
+     System.out.println("Member added successfully! Your ID is: " + newId);
+    }
+
+    public void viewBook(){
+    for(Book b : books.values()){
+        b.getDetails();
+    }
+    }
+
+    public void searchBook(String isbn){
+     if(!books.containsKey(isbn)){
+        System.out.println("Book not found" ) ;
+        return;
+     }
+     Book book = books.get(isbn) ;
+     book.getDetails();
+    
+    
+    }
     
   }
    
