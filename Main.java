@@ -1,7 +1,7 @@
 import java.util.* ;
 public class Main{
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in) ;
+         Scanner sc = new Scanner(System.in) ;
 
          Library library = new Library() ;
        while(true){
@@ -14,17 +14,22 @@ public class Main{
                         "6. Add Member\n" + //
                         "7. Exit ");
         int choose = sc.nextInt() ;
-        
+        String isbn;
+        String memberId;
+        String title;
+        String author;
+        Member m =null;
         switch (choose) {
+
             case 1 :     
                 System.out.println("Books Title");    
-                String title = sc.nextLine(); 
+                 title = sc.nextLine(); 
                 
                 System.out.println("Author's Name");
-                String author = sc.nextLine() ;
+                 author = sc.nextLine() ;
 
                 System.out.println("ISBN number");
-                String isbn = sc.next();
+                 isbn = sc.next();
 
                 Book b1 = new Book(title, author, isbn);
                 library.addBook(b1);
@@ -33,35 +38,48 @@ public class Main{
 
              case 2 :     //borrow book
               System.out.println("Your Member Id");
-              String memberId = sc.nextLine();
+              memberId = sc.nextLine();
 
               System.out.println("Book ISBN number");
-              String isbn = sc.nextLine() ;
+               isbn = sc.nextLine() ;
 
-              Member m = library.getMember(memberId);
-            if(m==null)
-                s
-             
-                               
+               m = library.getMember(memberId);
+            if(m==null){
+              System.out.println("Member not found");
+              return ;
+            }
+            library.borrowBook(isbn , m) ;
+                       
                 break;
 
-            case 3 :     
-                               //add book
+            case 3 :     //return book
+             System.out.println("Your Member Id");
+              memberId = sc.nextLine();
+
+              System.out.println("Book ISBN number");
+               isbn = sc.nextLine() ;
+
+             m = library.getMember(memberId);
+              if(m==null){
+                System.out.println("Member not found");
+              return ;
+              }
+               library.returnBook(isbn, m);
+                               
                 
                 break;
 
             case 4:     
-                               //add book
+                               
                 
                 break;
 
-            case 5 :     
-                               //add book
+            case 5 :   
                 
                 break;
 
              case 6 :     
-                               //add book
+                               
                 
                 break;
 
@@ -69,7 +87,7 @@ public class Main{
                 System.out.println("Goodbye!");   //exit 
                 sc.close();   
                     return;
-                  break ;
+                
 
                 
         
@@ -77,12 +95,14 @@ public class Main{
                 break;
         }
         
+        }
+    }
 
+
+    }
+
+    
+       
 
       
 
-    
-    }
-
-}
-}   
