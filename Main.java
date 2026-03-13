@@ -4,6 +4,16 @@ public class Main{
          Scanner sc = new Scanner(System.in) ;
 
          Library library = new Library() ;
+
+         int choose = sc.nextInt() ;
+         sc.nextLine();
+         
+        String isbn;
+        String memberId;
+        String title;
+        String author;
+        Member m =null;
+
        while(true){
          System.out.println("------------Menu-------------");
         System.out.println("Chosse frome the follwing :  1. Add Book\n" + //
@@ -13,12 +23,7 @@ public class Main{
                         "5. View All Books\n" + //
                         "6. Add Member\n" + //
                         "7. Exit ");
-        int choose = sc.nextInt() ;
-        String isbn;
-        String memberId;
-        String title;
-        String author;
-        Member m =null;
+        
         switch (choose) {
 
             case 1 :     
@@ -46,7 +51,7 @@ public class Main{
                m = library.getMember(memberId);
             if(m==null){
               System.out.println("Member not found");
-              return ;
+              break ;
             }
             library.borrowBook(isbn , m) ;
                        
@@ -62,7 +67,7 @@ public class Main{
              m = library.getMember(memberId);
               if(m==null){
                 System.out.println("Member not found");
-              return ;
+              break ;
               }
                library.returnBook(isbn, m);             
                 break;
@@ -75,23 +80,28 @@ public class Main{
 
                 break;
 
-            case 5 :   
+            case 5 :   // view book
+              library.viewBook();
                 
                 break;
 
-             case 6 :     
-                               
+             case 6 :  //Add member
+             System.out.println("Give the following details: ");
+             System.out.println("Your Name: "); 
+             String name = sc.nextLine();
+
+             System.out.println(" Your Mobile Number: ");
+             String phone = sc.nextLine() ;    
+             
+             library.addMember(name , phone) ;
                 
                 break;
 
             case 7 :     
                 System.out.println("Goodbye!");   //exit 
                 sc.close();   
-                    return;
-                  break ;
 
-                
-        
+                  return;
             default:
                 break;
         }
