@@ -64,14 +64,15 @@ public class Main{
                 System.out.println("Member not found");
               return ;
               }
-               library.returnBook(isbn, m);
-                               
-                
+               library.returnBook(isbn, m);             
                 break;
 
-            case 4:     
-                               
-                
+            case 4:    //search book
+             System.out.println("ISBN number");
+                 isbn = sc.next();
+
+                 library.searchBook(isbn); 
+
                 break;
 
             case 5 :   
@@ -87,7 +88,7 @@ public class Main{
                 System.out.println("Goodbye!");   //exit 
                 sc.close();   
                     return;
-                
+                  break ;
 
                 
         
