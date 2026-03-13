@@ -5,9 +5,8 @@ public class Main{
 
          Library library = new Library() ;
 
-         int choose = sc.nextInt() ;
-         sc.nextLine();
          
+        
         String isbn;
         String memberId;
         String title;
@@ -16,13 +15,17 @@ public class Main{
 
        while(true){
          System.out.println("------------Menu-------------");
-        System.out.println("Chosse frome the follwing :  1. Add Book\n" + //
+        System.out.println("1. Add Book\n" + //
                         "2. Borrow Book\n" + //
                         "3. Return Book\n" + //
                         "4. Search Book\n" + //
                         "5. View All Books\n" + //
                         "6. Add Member\n" + //
                         "7. Exit ");
+        
+        System.out.println("Please select an option from the menu");               
+         int choose = sc.nextInt() ;
+         sc.nextLine();               
         
         switch (choose) {
 

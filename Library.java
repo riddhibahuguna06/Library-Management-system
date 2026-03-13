@@ -6,6 +6,22 @@ public class Library{
  public Library(){
     this.books = new HashMap<>();
     this.members = new HashMap<>() ;
+
+    // pre-loaded books
+    addBook(new Book("Harry Potter", "JK Rowling", "HP1001"));
+    addBook(new Book("The Alchemist", "Paulo Coelho", "TA1002"));
+    addBook(new Book("Rich Dad Poor Dad", "Robert Kiyosaki", "RD1003"));
+    addBook(new Book("Atomic Habits", "James Clear", "AH1004"));
+    addBook(new Book("Clean Code", "Robert Martin", "CC1005"));
+
+    //pre-loaded members
+    
+    members.put("1", new Member(1, "Riddhi", "982366632"));
+    members.put("2", new Member(2, "Kartik", "982974632"));
+    members.put("3", new Member(3, "Kailash", "97396732"));
+   members.put("4", new Member(4, "Shubhi", "904756632"));
+    members.put("5", new Member(5, "Shaurya", "93567752"));
+   
  }
 public Member getMember(String memberId){
    return members.get(memberId) ;
@@ -14,6 +30,7 @@ public Member getMember(String memberId){
   public void addBook(Book book){
    books.put(book.getIsbn(), book) ;
    System.out.println("The new book added is : " + book.getTitle());
+   
   }
   public void borrowBook(String Isbn , Member member){
     if(!books.containsKey(Isbn)){
