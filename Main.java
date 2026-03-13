@@ -4,27 +4,85 @@ public class Main{
         Scanner sc = new Scanner(System.in) ;
 
          Library library = new Library() ;
-
-        Book b1 = new Book("Harry Potter" , "JK Rowlling" , "HP1001") ;
-        b1.getDetails() ;
-      System.out.println("------------------------------");
-        Member m1 = new Member(1001, "Kartik", "9763000577");
-        m1.getMemberDetails() ;
-
-        m1.borrowBook(b1) ;
-        m1.viewBorrowedBooks();
+       while(true){
+         System.out.println("------------Menu-------------");
+        System.out.println("Chosse frome the follwing :  1. Add Book\n" + //
+                        "2. Borrow Book\n" + //
+                        "3. Return Book\n" + //
+                        "4. Search Book\n" + //
+                        "5. View All Books\n" + //
+                        "6. Add Member\n" + //
+                        "7. Exit ");
+        int choose = sc.nextInt() ;
         
-        System.out.println("Write your name: " );
-        String name = sc.next() ;
+        switch (choose) {
+            case 1 :     
+                System.out.println("Books Title");    
+                String title = sc.nextLine(); 
+                
+                System.out.println("Author's Name");
+                String author = sc.nextLine() ;
 
-        System.out.println("Write your mobile number: ");
-        String phone = sc.next() ;
+                System.out.println("ISBN number");
+                String isbn = sc.next();
 
-       
-        library.addMember(name , phone) ;
+                Book b1 = new Book(title, author, isbn);
+                library.addBook(b1);
+                
+                break;
+
+             case 2 :     //borrow book
+              System.out.println("Your Member Id");
+              String memberId = sc.nextLine();
+
+              System.out.println("Book ISBN number");
+              String isbn = sc.nextLine() ;
+
+              Member m = library.getMember(memberId);
+            if(m==null)
+                s
+             
+                               
+                break;
+
+            case 3 :     
+                               //add book
+                
+                break;
+
+            case 4:     
+                               //add book
+                
+                break;
+
+            case 5 :     
+                               //add book
+                
+                break;
+
+             case 6 :     
+                               //add book
+                
+                break;
+
+            case 7 :     
+                System.out.println("Goodbye!");   //exit 
+                sc.close();   
+                    return;
+                  break ;
+
+                
+        
+            default:
+                break;
+        }
+        
+
 
       
 
-    sc.close();
+    
     }
+
 }
+}   

@@ -7,6 +7,9 @@ public class Library{
     this.books = new HashMap<>();
     this.members = new HashMap<>() ;
  }
+public Member getMember(String memberId){
+   return members.get(memberId) ;
+}
 
   public void addBook(Book book){
    books.put(book.getIsbn(), book) ;
